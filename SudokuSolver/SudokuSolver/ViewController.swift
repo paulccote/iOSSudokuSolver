@@ -12,9 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet var cells: [UITextField]! {
+        didSet {
+            cells.sort { $0.tag < $1.tag }
+        }
+    }
+    @IBAction func solveButtonPressed(_ sender: UIButton) {
+        for cell in cells {
+            print(cell.text!)
+        }
+    }
+    
 }
 
