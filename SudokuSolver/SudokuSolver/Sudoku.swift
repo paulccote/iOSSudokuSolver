@@ -34,9 +34,9 @@ class Sudoku {
         return rowValues
     }
     
-    func rowIsValid(row: Int) -> Bool {
+    func rowIsValid(rowNumber: Int) -> Bool {
         var seen = [1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false]
-        let row = getRow(rowNumber: row)
+        let row = getRow(rowNumber: rowNumber)
         for i in row {
             if i != 0 {
                 if seen[i]! {
@@ -47,5 +47,20 @@ class Sudoku {
             }
         }
         return true;
+    }
+    
+    func columnIsValid(columnNumber: Int) -> Bool {
+        var seen = [1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false]
+        let column = getColumn(columnNumber: columnNumber)
+        for i in column {
+            if i != 0 {
+                if seen[i]! {
+                    return false
+                } else {
+                    seen[i] = true
+                }
+            }
+        }
+        return true
     }
 }
