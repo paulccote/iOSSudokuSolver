@@ -17,10 +17,19 @@ class Sudoku {
         }
     }
     
+    func getColumn(columnNumber: Int) -> [Int] {
+        var columnValues: [Int] = []
+        for rowNumber in 0..<9 {
+            columnValues.append(cells[columnNumber * 9 + rowNumber])
+        }
+        return columnValues
+    }
+    
     func getRow(rowNumber: Int) -> [Int] {
         var rowValues: [Int] = []
-        for columnNumber in 0..<9 {
-            rowValues.append(cells[columnNumber * 9 + rowNumber])
+        for rowValue in (9 * rowNumber)..<(9 * rowNumber + 9) {
+            rowValues.append(rowValue)
+            
         }
         return rowValues
     }
